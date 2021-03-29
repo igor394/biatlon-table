@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 import TableElem from './component/Table';
-import './App.css'
 import React from 'react';
 
 
