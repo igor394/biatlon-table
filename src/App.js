@@ -1,11 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Tables from './component/Table'
 
 
 function App() {
   return (
     <div className="content">
       <div className="container">
-        <p>test</p>
+        <Tables />
       </div>
     </div>
   );

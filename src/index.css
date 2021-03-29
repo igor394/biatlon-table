@@ -13,6 +13,9 @@ code {
 }
 .content {
   height: 100vh;
-  background:  url(./component/images/BG.jpg) no-repeat;
+  background:  url(./BG.jpg) no-repeat;
   background-size: 100%;
+}
+.flag {
+  height: 20px;
 }

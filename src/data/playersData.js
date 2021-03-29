@@ -1,9 +1,9 @@
-const sportsMan = [
+export const players = [
     {
         id: 1,
         number: 11,
-        country: 'NORWAY',
-        flag: './images/NOR.png',
+        country: 'NOR',
+        flag: './../images/NOR.png',
         name: 'ANDERSEN Aleksander Fjeld',
         miss: 0,
         time: '02:45:24.5',
@@ -12,78 +12,78 @@ const sportsMan = [
     {
         id: 2,
         number: 3,
-        country: 'NORWAY',
-        flag: './images/NOR.png',
+        country: 'NOR',
+        flag: '../images/NOR.png',
         name: 'BAKKEN Sivert Guttorm',
         miss: 1,
-        time: '+12.9s',
+        time: '+12.9',
         timeShoots: 55.5
     },
     {
         id: 3,
         number: 18,
-        country: 'ITALY',
-        flag: './images/ITA.png',
+        country: 'ITA',
+        flag: '../images/ITA.png',
         name: 'CAPPELLARI Daniele',
         miss: 0,
-        time: '+18.8s',
+        time: '+18.8',
         timeShoots: 44.7
     },
     {
         id: 4,
         number: 25,
-        country: 'RUSSIA',
-        flag: './images/RUS.png',
+        country: 'RUS',
+        flag: '../images/RUS.png',
         name: 'SUCHILOV Semen',
         miss: 1,
-        time: '+30.4s',
+        time: '+30.4',
         timeShoots: 58.1
     },
     {
         id: 5,
         number: 21,
-        country: 'FRANCE',
-        flag: './images/FRA.png',
+        country: 'FRA',
+        flag: '../images/FRA.png',
         name: 'PERROT Eric',
         miss: 1,
-        time: '+32.8s',
+        time: '+32.8',
         timeShoots: 42.0
     },
     {
         id: 6,
         number: 44,
-        country: 'SWEDEN',
-        flag: './images/SWE.png',
+        country: 'SWE',
+        flag: '../images/SWE.png',
         name: 'STEFANSSON Malte',
         miss: 0,
-        time: '+36.4s',
+        time: '+36.4',
         timeShoots: 48.9
     },
     {
         id: 7,
         number: 32,
-        country: 'GERMANY',
-        flag: './images/GER.png',
+        country: 'GER',
+        flag: '../images/GER.png',
         name: 'NAWRATH Philipp',
         miss: 1,
-        time: '+40.8s',
+        time: '+40.8',
         timeShoots: 38.5
     },
     {
         id: 8,
         number: 38,
-        country: 'CANADA',
-        flag: './images/CAN.png',
+        country: 'CAN',
+        flag: '../images/CAN.png',
         name: 'BURNOTTE Jules',
         miss: 2,
-        time: '+43.1s',
+        time: '+43.1',
         timeShoots: 53.7
     },
     {
         id: 9,
         number: 7,
-        country: 'UKRAINE',
-        flag: './images/UKR.png',
+        country: 'UKR',
+        flag: '../images/UKR.png',
         name: 'TSYMBAL Bogdan',
         miss: 2,
         time: '+48.6s',
@@ -92,8 +92,8 @@ const sportsMan = [
     {
         id: 10,
         number: 19,
-        country: 'SWEDEN',
-        flag: './images/SWE.png',
+        country: 'SWE',
+        flag: '../images/SWE.png',
         name: 'STENERSEN Torstein',
         miss: 4,
         time: '+52.8s',
@@ -102,23 +102,11 @@ const sportsMan = [
     {
         id: 11,
         number: 42,
-        country: 'UKRAINE',
-        flag: './images/UKR.png',
+        country: 'UKR',
+        flag: '../images/UKR.png',
         name: 'LESIUK Taras',
         miss: 3,
         time: '+55.3s',
         timeShoots: 48.5
     }
 ]
-
-let sortedProducts = [...sportsMan];
-sortedProducts.sort((a, b) => {
-    if (a.name < b.name) {
-        return -1;
-    }
-    if (a.name > b.name) {
-        return 1;
-    }
-    return 0;
-});
-console.log(sortedProducts)
