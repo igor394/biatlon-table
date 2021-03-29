@@ -1,17 +1,17 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Tables from './component/Table';
-// import Search from "./component/Search";
+import TableElem from './component/Table';
 import './App.css'
+import React from 'react';
 
 
 function App() {
-  return (
-    <div className="content">
-      <div className="container">
-        <Tables/>
-      </div>
-    </div>
-  );
+    return (
+        <div className="content">
+            <div className="container">
+                <TableElem/>
+            </div>
+        </div>
+    );
 }
 
 export default App;
