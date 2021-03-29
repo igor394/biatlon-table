@@ -1,0 +1,14 @@
+.content {
+    height: 100vh;
+    background:  url(./BG.jpg) no-repeat;
+    background-size: 100%;
+}
+.flag {
+    height: 20px;
+}
+.table-secondary {
+    opacity: 90%;
+}
+.table-secondary td{
+    padding: 8px;
+}
