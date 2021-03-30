@@ -1,0 +1,1 @@
+biathlon race results table. test task for the trainee. using react + node. direct and reverse filtering, search by name through a fetch request to the server.
