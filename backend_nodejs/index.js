@@ -13,8 +13,7 @@ http.createServer((req, res) => {
     console.log('server work ========');
     if (req.method == 'GET') {
         res.end('the server is running on port 3500 through a nodeJS');
-    }
-    else {
+    } else {
         let body = '';
         req.on('data', chunk => {
             body += chunk.toString();
@@ -23,90 +22,59 @@ http.createServer((req, res) => {
             let params = JSON.parse(body);
             switch (params.action) {
                 case 1:
-                    console.log('action 1');
-                    console.log(chek1);
-                    if(chek1){
-                        res.end(JSON.stringify(filterNumberBack(db, 'id')));
-                        chek1=false;
-                        break;
-                    }else {
-                        res.end(JSON.stringify(filterNumber(db, 'id')));
-                        chek1=true
-                        break;
-                    }
+                    console.log('action 1' + check);
+                    res.end(JSON.stringify(filterNumber(db, 'id')));
+                    break;
                 case 2:
                     console.log('action 2');
-                    if(chek1){
                         res.end(JSON.stringify(filterNumber(db, 'number')));
-                        chek1=false;
-                        break;
-                    }else {
-                        res.end(JSON.stringify(filterNumberBack(db, 'number')));
-                        chek1=true
-                        break;
-                    }
+                    break;
                 case 3:
                     console.log('action 3');
-                    if(chek1){
                         res.end(JSON.stringify(filterString(db, 'name')));
-                        chek1=false;
                         break;
-                    }else {
-                        res.end(JSON.stringify(filterStringBack(db, 'name')));
-                        chek1=true
-                        break;
-                    }
-                    break;
                 case 4:
                     console.log('action 4');
-                    if(chek1){
                         res.end(JSON.stringify(filterString(db, 'country')));
-                        chek1=false;
-                        break;
-                    }else {
-                        res.end(JSON.stringify(filterStringBack(db, 'country')));
-                        chek1=true
-                        break;
-                    }
                     break;
                 case 5:
                     console.log('action 5');
-                    if(chek1){
                         res.end(JSON.stringify(filterNumber(db, 'miss')));
-                        chek1=false;
-                        break;
-                    }else {
-                        res.end(JSON.stringify(filterNumberBack(db, 'miss')));
-                        chek1=true
-                        break;
-                    }
+                    break;
                 case 6:
                     console.log('action 6');
-                    if(chek1){
-                        res.end(JSON.stringify(filterNumber(db, 'number')));
-                        chek1=false;
-                        break;
-                    }else {
-                        res.end(JSON.stringify(filterNumberBack(db, 'number')));
-                        chek1=true
-                        break;
-                    }
+                        res.end(JSON.stringify(filterNumber(db, 'timeShoots')));
+                    break;
+                case 7:
+                    console.log('action 7' + ' / ' + params.text);
+                        res.end(JSON.stringify(searchMembers(db, params.text)));
+                    break;
             }
         });
     }
-
 }).listen(3500);
 
-let chek1= true;
+let check = false;
 const filterNumber = (arr, arg) => {
-    return arr.sort((a, b) => a[arg] - b[arg]);
+    if (check) {
+        check = false;
+        return arr.sort((a, b) => a[arg] - b[arg]);
+    } else {
+        check = true
+        return arr.sort((a, b) => b[arg] - a[arg]);
+    }
 }
-const filterNumberBack = (arr, arg) => {
-    return arr.sort((a, b) => b[arg] - a[arg]);
-}
+
 const filterString = (arr, arg) => {
-    return arr.sort((a, b) => (a[arg] < b[arg]) ? -1 : 1);
+    if (check) {
+        check = false;
+        return arr.sort((a, b) => (a[arg] < b[arg]) ? -1 : 1);
+    } else {
+        check = true
+        return arr.sort((a, b) => (a[arg] > b[arg]) ? -1 : 1);
+    }
 }
-const filterStringBack = (arr, arg) => {
-    return arr.sort((a, b) => (a[arg] > b[arg]) ? -1 : 1);
+
+const searchMembers = (arr, arg) => {
+    return arr.filter(item => item['name'].toLowerCase().includes(arg))
 }
